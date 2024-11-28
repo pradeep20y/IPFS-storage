@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPFS File Upload</title>
+</head>
+<body>
+    <h1>Upload a File to IPFS</h1>
+    <form id="uploadForm">
+        <input type="file" id="fileInput" accept=".jpg, .jpeg, .png, .pdf" required>
+        <button type="submit">Upload</button>
+    </form>
+    <p id="status"></p>
+    <script src="rahul.js"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</body>
+</html>
+    
+   <!--  <script>
+        const JWT = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiIwNjcxMWJjZi0yYWNhLTQzNWYtYWEzNi1lNzQ2MGExNGE2NTkiLCJlbWFpbCI6ImJsb2NrcmVwcmFkZWVwQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwaW5fcG9saWN5Ijp7InJlZ2lvbnMiOlt7ImlkIjoiRlJBMSIsImRlc2lyZWRSZXBsaWNhdGlvbkNvdW50IjoxfSx7ImlkIjoiTllDMSIsImRlc2lyZWRSZXBsaWNhdGlvbkNvdW50IjoxfV0sInZlcnNpb24iOjF9LCJtZmFfZW5hYmxlZCI6ZmFsc2UsInN0YXR1cyI6IkFDVElWRSJ9LCJhdXRoZW50aWNhdGlvblR5cGUiOiJzY29wZWRLZXkiLCJzY29wZWRLZXlLZXkiOiI5M2RkMzg3OGQyYTAyYTk5NmYwOSIsInNjb3BlZEtleVNlY3JldCI6IjhlY2I0ZDZhODIxODFmODU0N2UyYzY0OGUwYjFjMzEyMTExNDg5YzUzNmY5ZWU3ZGM1MmRkMjU2YjJkYWNhN2YiLCJpYXQiOjE2OTYyNDkyMDB9.cn3o-ZnDpiTXTvlC3owAjjyrTOdYvETCizBNi9pXi5M"; // Replace with your Pinata JWT token
+
+        const uploadForm = document.getElementById('uploadForm');
+        const fileInput = document.getElementById('fileInput');
+        const statusMessage = document.getElementById('status');
+
+        uploadForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const file = fileInput.files[0];
+
+            if (!file) {
+                statusMessage.textContent = 'Please select a file.';
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            try {
+                const res = await axios.post('https://api.pinata.cloud/pinning/pinFileToIPFS', formData, {
+                    maxBodyLength: Infinity,
+                    headers: {
+                        'Content-Type': `multipart/form-data; boundary=${formData._boundary}`,
+                        'Authorization': `Bearer ${JWT}`,
+                    },
+                });
+
+                statusMessage.textContent = `File uploaded to IPFS. CID: ${res.data.IpfsHash}`;
+            } catch (error) {
+                statusMessage.textContent = `Error uploading to Pinata: ${error.message}`;
+            }
+        });
+    </script> -->
